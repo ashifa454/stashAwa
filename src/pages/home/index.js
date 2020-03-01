@@ -49,7 +49,9 @@ function HomePage() {
           <div>Something went Wront</div>
         )}
         {isLoaded === FetchUtils.loadingState.LOADING && (
-          <div className="shadow py-4 px-4 text-center max-w-xs mx-auto">Loading Please Wait</div>
+          <div className="shadow py-4 px-4 text-center max-w-xs mx-auto">
+            Loading Please Wait
+          </div>
         )}
         {isLoaded === FetchUtils.loadingState.SUCCESS &&
           topRemen.map(item => {
@@ -65,7 +67,9 @@ function HomePage() {
                       )}
                     </p>
                     <div className="text-gray-500 italic text-sm mb-4">
-                      {`${item.Country} ${item["Top Ten"]}`}
+                      {`${item.Country} ${parseUtils.parseNanStr(
+                        item["Top Ten"]
+                      )}`}
                     </div>
                     <div className="">
                       <div className="text-lg font-bold text-grey-700">
@@ -77,7 +81,7 @@ function HomePage() {
                   <div className="flex items-center">
                     <div className="text-sm">
                       <p className="text-gray-900 leading-none">
-                        Style <b>{item.Style}</b>
+                        Style <b>{parseUtils.parseNanStr(item.Style)}</b>
                       </p>
                     </div>
                   </div>
