@@ -1,13 +1,11 @@
 const FetchUtils = {
   get: url => {
     return new Promise((resolve, reject) => {
-      fetch(url, {
-        mode: "no-cors"
-      })
-        .then(res => res.text())
+      fetch(url)
+        .then(res => res.json())
         .then(
           result => {
-            resolve(result ? JSON.parse(result) : []);
+            resolve(result);
           },
           err => {
             console.log(err);
